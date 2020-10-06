@@ -11,7 +11,7 @@ var m = sync.RWMutex{}
 
 func main() {
 
-	//runtime.GOMAXPROCS(100) // avoid parallelism
+	//runtime.GOMAXPROCS(100) // avoid race conditions, parallelism
 	for i := 0; i < 10; i++ {
 		wg.Add(2)
 		m.RLock()
